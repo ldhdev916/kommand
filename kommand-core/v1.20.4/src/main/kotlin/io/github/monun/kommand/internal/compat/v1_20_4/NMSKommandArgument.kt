@@ -348,13 +348,13 @@ class NMSKommandArgumentSupport : KommandArgumentSupport {
 
     override fun score(): KommandArgument<String> {
         return ScoreHolderArgument.scoreHolder() provide { context, name ->
-            ScoreHolderArgument.getName(context, name).toString()
+            ScoreHolderArgument.getName(context, name).scoreboardName
         }
     }
 
     override fun scores(): KommandArgument<Collection<String>> {
         return ScoreHolderArgument.scoreHolders() provide { context, name ->
-            ScoreHolderArgument.getNames(context, name).map { it.toString() }
+            ScoreHolderArgument.getNames(context, name).map { it.scoreboardName }
         }
     }
 
